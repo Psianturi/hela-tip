@@ -1,3 +1,7 @@
+"use client";
+
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
@@ -11,18 +15,18 @@ export default function Home() {
           transparently on the blockchain.
         </p>
         <div className="flex justify-center gap-4">
-          <a
+          <Link
             href="/dashboard"
             className="rounded-2xl bg-indigo-600 px-6 py-3 text-white font-semibold shadow-md hover:bg-indigo-700 transition"
           >
             Go to Dashboard
-          </a>
-          <a
+          </Link>
+          <Link
             href="/about"
             className="rounded-2xl border border-gray-300 px-6 py-3 text-gray-700 font-semibold hover:bg-gray-100 transition"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -40,13 +44,15 @@ export default function Home() {
           <div className="bg-gray-50 rounded-2xl p-6 shadow hover:shadow-lg transition">
             <h3 className="text-xl font-semibold mb-4">Community First</h3>
             <p className="text-gray-600">
-              Empower communities to support each other directly without middlemen.
+              Empower communities to support each other directly without
+              middlemen.
             </p>
           </div>
           <div className="bg-gray-50 rounded-2xl p-6 shadow hover:shadow-lg transition">
             <h3 className="text-xl font-semibold mb-4">Easy to Use</h3>
             <p className="text-gray-600">
-              Seamless experience with wallet connect integration and simple dashboard.
+              Seamless experience with wallet connect integration and simple
+              dashboard.
             </p>
           </div>
         </div>
@@ -55,11 +61,16 @@ export default function Home() {
       {/* Footer */}
       <footer className="mt-auto bg-gray-100 py-6 text-center text-gray-600">
         <p>
-          © {new Date().getFullYear()} HelaTip. Built with 💜 on Farcaster Frames.
+          © {new Date().getFullYear()} HelaTip. Built with 💜 on Farcaster
+          Frames.
         </p>
         <div className="mt-2 space-x-4">
-          <a href="/about" className="hover:text-indigo-600">About</a>
-          <a href="/dashboard" className="hover:text-indigo-600">Dashboard</a>
+          <Link href="/about" className="hover:text-indigo-600">
+            About
+          </Link>
+          <Link href="/dashboard" className="hover:text-indigo-600">
+            Dashboard
+          </Link>
         </div>
       </footer>
     </main>

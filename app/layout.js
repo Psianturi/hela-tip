@@ -1,27 +1,48 @@
-import Link from "next/link";
-import "./globals.css";
+"use client";
 
-export const metadata = {
-  title: "HelaTip",
-  description: "Decentralized tipping platform",
-};
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { WagmiProvider, http } from "wagmi";
+import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
+import {
+  RainbowKitProvider,
+  getDefaultConfig,
+} from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Navbar } from "../components/Navbar";
+
+const inter = Inter({ subsets: ["latin"] });
+
+// ===== Wagmi + RainbowKit Config =====
+const config = getDefaultConfig({
+  appName: "HelaTip",
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
+  chains: [mainnet, polygon, optimism, arbitrum],
+  transports: {
+    [mainnet.id]: http(),
+    [polygon.id]: http(),
+    [optimism.id]: http(),
+    [arbitrum.id]: http(),
+  },
+});
+
+const queryClient = new QueryClient();
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900">
-        {/* Navbar */}
-        <nav className="flex justify-between items-center px-6 py-4 shadow-md bg-white">
-          <h1 className="text-xl font-bold text-indigo-600">HelaTip</h1>
-          <div className="space-x-6">
-            <Link href="/" className="hover:text-indigo-600">Home</Link>
-            <Link href="/about" className="hover:text-indigo-600">About</Link>
-            <Link href="/dashboard" className="hover:text-indigo-600">Dashboard</Link>
-          </div>
-        </nav>
+      <body className={inter.className}>
+        <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            <RainbowKitProvider>
+              {/* Navbar Global */}
+              <Navbar />
 
-        {/* Halaman yg aktif */}
-        <main>{children}</main>
+              {/* Page Content */}
+              <main className="p-6">{children}</main>
+            </RainbowKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
       </body>
     </html>
   );
