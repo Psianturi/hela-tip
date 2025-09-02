@@ -3,26 +3,39 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { WagmiProvider, http } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
 import {
   RainbowKitProvider,
   getDefaultConfig,
 } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Navbar } from "../components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// ===== Wagmi + RainbowKit Config =====
+
+
+const helaTestnet = {
+  id: 666888, 
+  name: 'HeLa Testnet',
+  nativeCurrency: { name: 'Hela', symbol: 'HELA', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://testnet-rpc.helalabs.com/'] },
+  },
+  blockExplorers: {
+    default: { name: 'HelaScan', url: 'https://testnet-scan.helalabs.com/' },
+  },
+  testnet: true,
+};
+
+
 const config = getDefaultConfig({
   appName: "HelaTip",
+  
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
-  chains: [mainnet, polygon, optimism, arbitrum],
+  chains: [helaTestnet], 
   transports: {
-    [mainnet.id]: http(),
-    [polygon.id]: http(),
-    [optimism.id]: http(),
-    [arbitrum.id]: http(),
+    [helaTestnet.id]: http(), 
   },
 });
 
@@ -39,7 +52,8 @@ export default function RootLayout({ children }) {
               <Navbar />
 
               {/* Page Content */}
-              <main className="p-6">{children}</main>
+              {}
+              {children}
             </RainbowKitProvider>
           </QueryClientProvider>
         </WagmiProvider>

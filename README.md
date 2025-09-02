@@ -1,46 +1,40 @@
-# Hela Tip 💸  
-Mini dApp demo untuk event **Hela x Farcaster**.  
-Dibangun dengan **Next.js 14 + TailwindCSS**.  
+# HelaTip 💸
 
-## 🚀 Features (WIP)  
-- Landing Page dengan CTA ke Dashboard  
-- Dashboard Skeleton (grid + card dummy data)  
-- (Next) Wallet Connect & Web3 Integration  
+A fully functional decentralized tipping platform to support creators, built for the **Hela x Farcaster "Hack the Cast"** event. This project is built with a modern Web3 stack including **Next.js 14, TailwindCSS, Wagmi, and RainbowKit**.
 
-## 🛠️ Tech Stack  
-- [Next.js 14](https://nextjs.org/)  
-- [TailwindCSS](https://tailwindcss.com/)  
-- (Planned) Wagmi + RainbowKit untuk wallet connect  
-- (Planned) Smart contract Hela tip  
+## 📸 Screenshot
+
+![alt text](image.png)
+---
+
+## 🚀 Features
+
+-   ✅ **Modern Landing Page:** A clean and professional homepage.
+-   ✅ **Web3 Wallet Integration:** Seamless wallet connection using Wagmi & RainbowKit, configured specifically for the **HeLa Testnet**.
+-   ✅ **Functional Tipping Dashboard:** An interface for users to connect their wallet and send `HLUSD` tips on-chain.
+-   🚧 **(Next Up) Farcaster Frame Integration:** The core hackathon feature to enable tipping directly from the Farcaster social feed.
+
+## 🛠️ Tech Stack
+
+-   [Next.js 14](https://nextjs.org/)
+-   [TailwindCSS](https://tailwindcss.com/)
+-   [Wagmi](https://wagmi.sh/) & [RainbowKit](https://www.rainbowkit.com/) for Wallet & Blockchain Interaction
+-   (Planned) [frames.js](https://framesjs.org/) for Farcaster Frame development
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Environment Variables
+
+First, you need to create a `.env.local` file in the root of the project and add your WalletConnect Project ID. You can get one from [WalletConnect Cloud](https://cloud.walletconnect.com/).
 
 
-## Getting Started
+### 2. Run the Development Server
 
-First, run the development server:
+Then, install the dependencies and run the server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
 

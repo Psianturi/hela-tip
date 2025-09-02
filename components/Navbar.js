@@ -26,8 +26,8 @@ export function Navbar() {
         {/* Wallet Connect (compact style) */}
         <ConnectButton
           showBalance={false}
-          chainStatus="icon"   // tampil icon chain kecil
-          accountStatus="avatar" // tampil avatar address kecil
+          chainStatus="icon"  
+          accountStatus="avatar"
         />
       </div>
     </nav>
